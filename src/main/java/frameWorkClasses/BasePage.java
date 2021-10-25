@@ -19,8 +19,6 @@ import java.util.concurrent.TimeUnit;
 public class BasePage {
 
     public static WebDriver driver;
-    String testTime = LocalDateTime.now().toString().replace("/", "")
-            .replace(" ", "").replace(":", "");
 
     // constructor of the base class (manage browsers)
     public BasePage() {
@@ -77,7 +75,7 @@ public class BasePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(pLocator));
     }
 
-    //create a method to wait for the URL [WHERE and WHEN TO CALL THIS METHOD, and WHAT DO WE PASS AS LOCATOR?]
+    //create a method to wait for the URL
     public void waitForUrl(int elementWait, String pLocator) {
         WebDriverWait wait = new WebDriverWait(driver, elementWait);
         wait.until(ExpectedConditions.urlContains(pLocator));
@@ -89,13 +87,13 @@ public class BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(pLocator));
     }
 
-    //create a method to get Element  [NEED FURTHER CLARITY AS TO WHAT THIS AND BELOW METHOD DO]
+    //create a method to get Element
     public WebElement getElement(By pLocator) {
         waitForClick(10, pLocator);
         return driver.findElement(pLocator);
     }
 
-    //create a method to get Element Text   [NEED FURTHER CLARITY AS TO WHAT THIS AND ABOVE METHOD DO]
+    //create a method to get Element Text
     public String getElementText(By pLocator) {
         waitForElement(10, pLocator);
         String headerText = getElement(pLocator).getText();
@@ -143,7 +141,6 @@ public class BasePage {
             File srcFile = screenshot.getScreenshotAs(OutputType.FILE);
             try {
                 Files.move(srcFile, new File("resources/screenshots/" + result.getName() + ".png"));
-                //Files.move(srcFile, new File(screenshotsFolder + result.getName()+"_"+testTime.substring(0,17) + ".png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -157,7 +154,6 @@ public class BasePage {
             File srcFile = screenshot.getScreenshotAs(OutputType.FILE);
             try {
                 Files.move(srcFile, new File("resources/screenshots/" + result.getName() + ".png"));
-                //Files.move(srcFile, new File(screenshotsFolder + result.getName()+"_"+testTime.substring(0,17) + ".png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
