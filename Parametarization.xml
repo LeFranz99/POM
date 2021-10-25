@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Loan Test Suite">
+    <test thread-count="5" name="Loans">
+        <!--This parameter will run the entire package (incl. excluded tests) below
+        when called in any of this package's classes-->
+        <parameter name="URL" value="www.inspired.co.za"/>
+            <packages>
+                <package name="Loans"/>
+            </packages>
+    </test> <!-- Test -->
+</suite> <!-- Suite -->
