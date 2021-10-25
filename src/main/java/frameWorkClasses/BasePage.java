@@ -22,7 +22,7 @@ public class BasePage {
 
     // constructor of the base class (manage browsers)
     public BasePage() {
-        if (driver == null) {   //]WHY DO WE HAVE TO CHECK IF NULL?]
+        if (driver == null) {
             // get parameter values
             String driverDirectory = getDataConfigProperties("driverDir");
             String browserName = getDataConfigProperties("browser");
